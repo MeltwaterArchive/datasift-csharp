@@ -1,0 +1,10 @@
+H:\MediaSift\Datasift\DataSiftDemo\bin\Debug\DataSiftDemo.exe
+H:\MediaSift\Datasift\DataSiftDemo\bin\Debug\DataSiftDemo.pdb
+H:\MediaSift\Datasift\DataSiftDemo\bin\Debug\Datasift.dll
+H:\MediaSift\Datasift\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.dll
+H:\MediaSift\Datasift\DataSiftDemo\bin\Debug\Datasift.pdb
+H:\MediaSift\Datasift\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.pdb
+H:\MediaSift\Datasift\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.xml
+H:\MediaSift\Datasift\DataSiftDemo\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\MediaSift\Datasift\DataSiftDemo\obj\x86\Debug\DataSiftDemo.exe
+H:\MediaSift\Datasift\DataSiftDemo\obj\x86\Debug\DataSiftDemo.pdb

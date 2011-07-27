@@ -1,0 +1,10 @@
+H:\MediaSift\Datasift\DatasiftApiDemo\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\MediaSift\Datasift\DatasiftApiDemo\bin\Debug\DatasiftApiDemo.exe
+H:\MediaSift\Datasift\DatasiftApiDemo\bin\Debug\DatasiftApiDemo.pdb
+H:\MediaSift\Datasift\DatasiftApiDemo\bin\Debug\Datasift.dll
+H:\MediaSift\Datasift\DatasiftApiDemo\bin\Debug\Newtonsoft.Json.Net35.dll
+H:\MediaSift\Datasift\DatasiftApiDemo\bin\Debug\Datasift.pdb
+H:\MediaSift\Datasift\DatasiftApiDemo\bin\Debug\Newtonsoft.Json.Net35.pdb
+H:\MediaSift\Datasift\DatasiftApiDemo\bin\Debug\Newtonsoft.Json.Net35.xml
+H:\MediaSift\Datasift\DatasiftApiDemo\obj\x86\Debug\DatasiftApiDemo.exe
+H:\MediaSift\Datasift\DatasiftApiDemo\obj\x86\Debug\DatasiftApiDemo.pdb
