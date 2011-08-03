@@ -38,6 +38,7 @@ namespace Datasift
             }
             this.username = username;
             this.api_key = api_key;
+            //blindly assign hash even if its null since datasift now supports opening a stream/connection without subscribing to a specific stream
             this.hash = hash;
         }
         /// <summary>
@@ -99,7 +100,7 @@ namespace Datasift
             set { this.streamBufferSize = value; }
         }
         /// <summary>
-        /// Get & Set the time (in miliseconds) out for this DatasiftStream. i.e. the time afterwhich the DatasiftStream will stop
+        /// Get and Set the time (in miliseconds) out for this DatasiftStream. i.e. the time afterwhich the DatasiftStream will stop
         /// if it hasn't recieved anything from the server.
         /// </summary>
         public int Timeout

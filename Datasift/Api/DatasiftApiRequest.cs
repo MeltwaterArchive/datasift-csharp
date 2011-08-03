@@ -23,6 +23,9 @@ namespace Datasift.Api
         /// <param name="config">A config instance of configType, API</param>
         public DatasiftApiRequest(Config config)
         {
+            if (config == null) {
+                throw new InvalidStreamConfiguration();
+            }
             this.config = config;
         }
         /// <summary>
@@ -95,6 +98,7 @@ namespace Datasift.Api
             return new DatasiftApiResponse(request("cost", "&hash=" + hash));
         }
         /// <summary>
+        /// modifier protected only for the sake of overriding to test without nmock
         /// Makes an HTTP GET request
         /// </summary>
         /// <param name="method">The API method to make the request to e.g. api.dataisft.net/compile</param>
@@ -102,7 +106,7 @@ namespace Datasift.Api
         /// &csdl=interaction.csdl "apple"
         /// </param>
         /// <returns>Returns the responses string from the HTTP request.</returns>
-        private string request(string method, string param)
+        protected virtual string request(string method, string param)
         {
             //create our request
             WebRequest req = WebRequest.Create(config.getApiUrl(method) + param);

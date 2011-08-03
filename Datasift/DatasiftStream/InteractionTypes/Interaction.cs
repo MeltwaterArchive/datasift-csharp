@@ -40,7 +40,9 @@ namespace Datasift.DatasiftStream
             }
             catch (Exception e)
             {
-               
+                //if an exception ocured then make this an error
+                isError = true;
+                statusMsg = "Unable to parse json, maybe an incomplete interaction - "+e.Message;
             }
         }
         /// <summary>
@@ -99,7 +101,7 @@ namespace Datasift.DatasiftStream
         /// <returns>The string representation of this Interaction object</returns>
         public override string ToString()
         {
-            return json.ToString();
+            return json!= null ? json.ToString() : null;
         }
     }
 }

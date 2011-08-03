@@ -51,7 +51,7 @@ namespace DataSiftDemo
             {
                 Console.WriteLine("Source : " + data.Get("interaction.source"));
                 Console.WriteLine("Authorname : " + data.Get("interaction.author.name"));
-                Console.WriteLine("Content : " + data.Get("interaction.csdl"));
+                Console.WriteLine("Content : " + data.Get("interaction.content"));
             }
             //print the whole interaction
             // Console.WriteLine("Interaction \n" + data.ToString() + "\nInteraction End\n\n");
