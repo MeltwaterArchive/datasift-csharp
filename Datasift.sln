@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brandy", "Brandy\Brandy.csproj", "{61076541-6191-41BE-9F69-7D52E119C175}"
-EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Datasift.vsmdi
@@ -71,16 +69,6 @@ Global
 		{57A8B9D5-D9A2-4584-A2E3-EE2C6390C3CF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{57A8B9D5-D9A2-4584-A2E3-EE2C6390C3CF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{57A8B9D5-D9A2-4584-A2E3-EE2C6390C3CF}.Release|x86.ActiveCfg = Release|Any CPU
-		{61076541-6191-41BE-9F69-7D52E119C175}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Debug|x86.ActiveCfg = Debug|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Debug|x86.Build.0 = Debug|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Release|Any CPU.ActiveCfg = Release|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Release|Mixed Platforms.Build.0 = Release|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Release|x86.ActiveCfg = Release|x86
-		{61076541-6191-41BE-9F69-7D52E119C175}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
