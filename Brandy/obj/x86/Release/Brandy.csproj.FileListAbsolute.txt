@@ -1,0 +1,15 @@
+G:\MediaSift\C#\Datasift\Brandy\bin\Release\Brandy.exe
+G:\MediaSift\C#\Datasift\Brandy\bin\Release\Brandy.pdb
+G:\MediaSift\C#\Datasift\Brandy\bin\Release\Datasift.dll
+G:\MediaSift\C#\Datasift\Brandy\bin\Release\Newtonsoft.Json.Net35.dll
+G:\MediaSift\C#\Datasift\Brandy\bin\Release\Newtonsoft.Json.Net35.pdb
+G:\MediaSift\C#\Datasift\Brandy\bin\Release\Newtonsoft.Json.Net35.xml
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\ResolveAssemblyReference.cache
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\Brandy.Home.resources
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\Brandy.LineGraph.resources
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\Brandy.Properties.Resources.resources
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\Brandy.Visualization.resources
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\ResGen.read.1.tlog
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\ResGen.write.1.tlog
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\Brandy.exe
+G:\MediaSift\C#\Datasift\Brandy\obj\x86\Release\Brandy.pdb

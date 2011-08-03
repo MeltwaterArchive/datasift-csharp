@@ -1,0 +1,11 @@
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\DatasiftTest.dll
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\DatasiftTest.pdb
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\Datasift.dll
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\Newtonsoft.Json.Net35.dll
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\Newtonsoft.Json.Net35.pdb
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\Newtonsoft.Json.Net35.xml
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\Datasift_Accessor.dll
+G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\Datasift_Accessor.pdb
+G:\MediaSift\C#\Datasift\DatasiftTest\obj\Release\ResolveAssemblyReference.cache
+G:\MediaSift\C#\Datasift\DatasiftTest\obj\Release\DatasiftTest.dll
+G:\MediaSift\C#\Datasift\DatasiftTest\obj\Release\DatasiftTest.pdb

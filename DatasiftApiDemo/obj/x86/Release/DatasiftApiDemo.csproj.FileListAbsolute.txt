@@ -1,0 +1,9 @@
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Release\DatasiftApiDemo.exe
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Release\DatasiftApiDemo.pdb
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Release\Datasift.dll
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Release\Newtonsoft.Json.Net35.dll
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Release\Newtonsoft.Json.Net35.pdb
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Release\Newtonsoft.Json.Net35.xml
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\obj\x86\Release\ResolveAssemblyReference.cache
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\obj\x86\Release\DatasiftApiDemo.exe
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\obj\x86\Release\DatasiftApiDemo.pdb
