@@ -11,8 +11,7 @@ Requirements
 ------------
 * Microsoft .NET 3.5
 * Note that you need a compiler capable of compiling .NET 3.5 code
-(Possibly) An IDE such as visual studio...the express version is free and should do fine.
-* (Note that you cannot* debug unit test with the express version)
+* (Possibly) An IDE such as visual studio...the express version is free and should do fine. (Note that you cannot* debug unit test with the express version)
 
 The following libraries are included in the lib folder.
 
