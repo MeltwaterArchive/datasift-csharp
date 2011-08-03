@@ -17,6 +17,15 @@ The following libraries are included in the lib folder.
 
 * JSON.NET from http://json.codeplex.com/ (Included)
 
+Get going
+---------
+The entire repository is on Visual studio solution.
+There are 4 projects in the solution
+* DataSift - This is the Datasift library. You can get the files in the bin/[debug|release] folder and add a reference in your project to get started or get the source and compile
+* DatasiftTest - This project contains a set of unit tests for the Datasift library
+* DatasiftApiDemo - This project demonstrates interacting with api.datasift.net
+* DatasiftStreamDemo - This project demonstrates interacting with stream.datasift.net
+
 
 License
 -------
