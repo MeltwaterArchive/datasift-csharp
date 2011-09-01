@@ -30,7 +30,7 @@ namespace Datasift
             }
             if (host == null)
             {
-                this.host = "http://stream.datasift.net/";
+                this.host = "http://stream.datasift.com";
             }
             else
             {
@@ -65,12 +65,12 @@ namespace Datasift
             }
             if (type == ConfigType.STREAM)
             {
-                this.host = "http://stream.datasift.net/";
+                this.host = "http://stream.datasift.com/";
             }
             else if (type == ConfigType.API)
             {
                 this.configType = type;
-                this.host = "http://api.datasift.net/";
+                this.host = "http://api.datasift.com/";
             }
             this.username = username;
             this.api_key = api_key;

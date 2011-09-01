@@ -20,3 +20,4 @@ G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Debug\Newtonsoft.Json.Net35.xml
 G:\MediaSift\C#\Datasift\DatasiftApiDemo\obj\x86\Debug\ResolveAssemblyReference.cache
 G:\MediaSift\C#\Datasift\DatasiftApiDemo\obj\x86\Debug\DatasiftApiDemo.exe
 G:\MediaSift\C#\Datasift\DatasiftApiDemo\obj\x86\Debug\DatasiftApiDemo.pdb
+G:\MediaSift\C#\Datasift\DatasiftApiDemo\bin\Debug\DatasiftApiDemo.exe.config

@@ -6,6 +6,7 @@ using System.Net;
 using System.IO;
 using Datasift;
 using Datasift.Exceptions;
+using System.Web;
 
 namespace Datasift.Api
 {
@@ -23,7 +24,8 @@ namespace Datasift.Api
         /// <param name="config">A config instance of configType, API</param>
         public DatasiftApiRequest(Config config)
         {
-            if (config == null) {
+            if (config == null)
+            {
                 throw new InvalidStreamConfiguration();
             }
             this.config = config;
@@ -97,6 +99,7 @@ namespace Datasift.Api
             // have a response object constructed and returned
             return new DatasiftApiResponse(request("cost", "&hash=" + hash));
         }
+
         /// <summary>
         /// modifier protected only for the sake of overriding to test without nmock
         /// Makes an HTTP GET request
@@ -108,13 +111,53 @@ namespace Datasift.Api
         /// <returns>Returns the responses string from the HTTP request.</returns>
         protected virtual string request(string method, string param)
         {
-            //create our request
-            WebRequest req = WebRequest.Create(config.getApiUrl(method) + param);
-            //get response stream
-            Stream stream = req.GetResponse().GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            //read the entire stream -
-            return reader.ReadToEnd();
+            try
+            {
+                Console.WriteLine(config.getApiUrl(method) + param);
+                //create our request
+                WebRequest req = WebRequest.Create(config.getApiUrl(method) + param);
+                //get response stream
+                Stream stream = req.GetResponse().GetResponseStream();
+                StreamReader reader = new StreamReader(stream);
+                //read the entire stream
+                return reader.ReadToEnd();
+            }
+            catch (Exception e) {
+                return "{error:\""+e.Message+"\"}";
+            }
+        }
+        /// <summary>
+        /// Make a recording related request
+        /// </summary>
+        /// <param name="method">The Recording method you wish to use</param>
+        /// <param name="param">A dictionary with method parameters as key value sets e.g. id:10 becomes &id=10 for the HTTP GET request</param>
+        /// <returns></returns>
+        public DatasiftApiResponse Recording(RecordingOperation method, Dictionary<string, string> param)
+        {
+            switch (method) {
+                case RecordingOperation.Recording: return RecordingOp("recording", param);//done
+                case RecordingOperation.Delete: return RecordingOp("recording/delete", param);
+                case RecordingOperation.Export: return RecordingOp("recording/export", param);
+                case RecordingOperation.Export_Delete: return RecordingOp("recording/export/delete", param);
+                case RecordingOperation.Export_Start: return RecordingOp("recording/export/start", param);
+                case RecordingOperation.Schedule: return RecordingOp("recording/schedule", param);
+                case RecordingOperation.Update: return RecordingOp("recording/update", param);
+                case RecordingOperation.Usage: return RecordingOp("usage", param);
+                default: return null;//satisfy compiler return type, not used
+            }
+        }
+
+        private DatasiftApiResponse RecordingOp(string method,Dictionary<string, string> param)
+        {
+            StringBuilder getParams = new StringBuilder();
+            foreach (KeyValuePair<string, string> kvp in param)
+            {
+                if (kvp.Value != null)
+                {
+                    getParams.Append("&").Append(kvp.Key).Append("=").Append(Uri.EscapeUriString(kvp.Value));
+                }
+            }
+            return new DatasiftApiResponse(request(method, getParams.ToString() ));
         }
     }
 }
