@@ -62,6 +62,9 @@
   <ItemGroup>
     <Compile Include="Api\DatasiftApiResponse.cs" />
     <Compile Include="Api\DatasiftApiRequest.cs" />
+    <Compile Include="Api\DatasiftUsage.cs" />
+    <Compile Include="Api\Export.cs" />
+    <Compile Include="Api\Recording.cs" />
     <Compile Include="Api\RecordingOperation.cs" />
     <Compile Include="Exceptions\InvalidStreamHashException.cs" />
     <Compile Include="AssemblyInfo.cs" />

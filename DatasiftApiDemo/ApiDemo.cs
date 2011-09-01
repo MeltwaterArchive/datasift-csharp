@@ -71,6 +71,69 @@ namespace DataSiftDemo
             //make the request to the API
             response = request.Recording(RecordingOperation.Update, param);
             recordingPrinter(response, response.Recording);
+//step 4    //exports, after data is recorded you may wish to export it, no point otherwise right?
+            param = new Dictionary<string, string>();//virtually the same process, pass some parameters
+            param.Add("recording_id", response.Recording.Id);//required
+            param.Add("format", "json");//required, supports json,xls or xlsx
+            param.Add("name", "exporting my awesome recording");//optional
+            //param.Add("start", "<UNIX_TIMESTAMP>");
+            //param.Add("end", "<UNIX_TIMESTAMP>");
+            response = request.Recording(RecordingOperation.Export_Start,param);
+            //API will return an Export object for the export we just started
+            exportPrinter(response.Export);
+
+//step 5    Get a list of our exports
+            //param = new Dictionary<string, string>();//virtually the same process, pass some parameters
+            //param.Add("id","<RECORDING_ID>");//optional, none of the params for this end point is required
+            //param.Add("page", "1");//optional :P you could paginate over all your exports if you had a vast amount
+            //param.Add("count", "20");//optional :( Limit the amount of exports returned
+            //the params above are shown for demonstration but aren't used in this request
+            response = request.Recording(RecordingOperation.Export);//yeah, param list can be optional
+            //lets see how many recordings we have
+            int size = response.ExportCount;
+            Console.WriteLine("We have" + size + " exports that we can iterate over");
+            List<Export> exports = response.AllExports;//get all the exports returned
+            foreach(Export ex in exports){
+                if (response.IsError)
+                {
+                    Console.WriteLine(response.Error);
+                }
+                else
+                {
+                    exportPrinter(ex);
+                }
+            }
+
+//step 6    We may want to delete a recording some time in the future
+            param = new Dictionary<string, string>();
+            param.Add("id", "<Recording_ID>");//only requried param
+            //make the API req.
+            //request.Recording(RecordingOperation.Delete, param);// won't do this in the demo need to use it later
+
+//step 7   We may also want to delete our exports
+            param = new Dictionary<string, string>();
+            param.Add("id", "<EXPORT_ID>");//only requried param
+            request.Recording(RecordingOperation.Export_Delete, param);//no content is returned!
+
+//step 8   After all these operations we must have used up some of our allowances!!! Lets get our usage
+            //param = new Dictionary<string, string>();
+            //param.Add("hash", "<STREAM_HASH>");//not required but would let the API return usage for a single stream
+            response=request.Usage();
+            DatasiftUsage usage = response.Usage;
+            Console.WriteLine("Delivered : " + usage.Delivered);
+            Console.WriteLine("Processed : " + usage.Processed);
+            Console.WriteLine("Twitter Delivered : " + usage.GetType("twitter").Delivered);
+            Console.WriteLine("Twitter Processed : " + usage.GetType("twitter").Processed);
+        }
+
+        private void exportPrinter(Export ex)
+        {
+            Console.WriteLine("Export name : " + ex.Name);
+            Console.WriteLine("Export ID : " + ex.Id);
+            Console.WriteLine("Recording ID : " + ex.RecordingId);
+            Console.WriteLine("Export start : " + ex.StartTime);
+            Console.WriteLine("Export end : " + ex.FinishTime);
+            Console.WriteLine("Export status : " + ex.Status);
         }
 
         private void recordingPrinter(DatasiftApiResponse response,Recording rec)

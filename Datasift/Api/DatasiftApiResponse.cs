@@ -81,6 +81,39 @@ namespace Datasift.Api
         /// This method returns all the available recordings that are returned
         /// </summary>
         public List<Recording> AllRecordings { get { return getAllRecordings(); } set { } }
+        /// <summary>
+        /// Return how many recordings you have or -1 if either none exists or the API request you made does not provide a count
+        /// </summary>
+        public int ExportCount { get { return json["count"] == null ? -1 : Convert.ToInt32(json["count"].ToString()); } set { } }
+        /// <summary>
+        /// Returns a single export object. Only if you made a request and provided an ID
+        /// </summary>
+        public Export Export { get { return json["recording_id"] == null ? null : new Export(json.ToString()); } set { } }
+       /// <summary>
+       /// Return a list of all available exports or a set up to the limit specified in the request which generated this response
+       /// </summary>
+        public List<Export> AllExports { get { return getAllExports(); } set { } }
+        /// <summary>
+        /// Returns a datasift usage object or null if not available
+        /// </summary>
+        public DatasiftUsage Usage { get { return json["processed"] == null ? null : new DatasiftUsage(json.ToString()); } set { } }
+        private List<Export> getAllExports()
+        {
+            List<Export> rec = new List<Export>();
+            JToken recordings = json["exports"];
+            if (recordings == null)
+            {
+                return null;
+            }
+            else
+            {
+                foreach (JToken item in recordings)
+                {
+                    rec.Add(new Export(item.ToString()));
+                }
+                return rec;
+            }
+        }
 
         private List<Recording> getAllRecordings()
         {
@@ -120,37 +153,5 @@ namespace Datasift.Api
                 return interactions;
             }
         }
-
-
-    }
-    /// <summary>
-    /// Recordings related data
-    /// </summary>
-    public class Recording{
-        private JObject json;
-        public Recording(string json)
-        {
-            this.json = JObject.Parse(json);
-        }
-        /// <summary>
-        /// Returns the ID for this recording
-        /// </summary>
-        public string Id { get { return json["id"] == null ? null : json["id"].ToString(); } set { } }
-        /// <summary>
-        /// When the recording was/should start(ed)
-        /// </summary>
-        public string StartTime { get { return json["start_time"] == null ? null : json["start_time"].ToString(); } set { } }
-        /// <summary>
-        /// When the recording should finish or finished
-        /// </summary>
-        public string FinishTime { get { return json["finish_time"] == null ? null : json["finish_time"].ToString(); } set { } }
-        /// <summary>
-        /// The name of this recording
-        /// </summary>
-        public string Name { get { return json["name"] == null ? null : json["name"].ToString(); } set { } }
-        /// <summary>
-        /// The stream hash for this recording
-        /// </summary>
-        public string Hash { get { return json["hash"] == null ? null : json["hash"].ToString(); } set { } }
     }
 }

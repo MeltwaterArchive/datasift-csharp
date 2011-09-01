@@ -127,6 +127,15 @@ namespace Datasift.Api
             }
         }
         /// <summary>
+        /// Make a recording related request where all parameters are optional
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
+        public DatasiftApiResponse Recording(RecordingOperation method)
+        {
+           return Recording(method, null);
+        }
+        /// <summary>
         /// Make a recording related request
         /// </summary>
         /// <param name="method">The Recording method you wish to use</param>
@@ -147,17 +156,57 @@ namespace Datasift.Api
             }
         }
 
-        private DatasiftApiResponse RecordingOp(string method,Dictionary<string, string> param)
+        private DatasiftApiResponse RecordingOp(string method, Dictionary<string, string> param)
         {
-            StringBuilder getParams = new StringBuilder();
-            foreach (KeyValuePair<string, string> kvp in param)
+            if (param == null)
             {
-                if (kvp.Value != null)
-                {
-                    getParams.Append("&").Append(kvp.Key).Append("=").Append(Uri.EscapeUriString(kvp.Value));
-                }
+                return new DatasiftApiResponse(request(method, ""));
             }
-            return new DatasiftApiResponse(request(method, getParams.ToString() ));
+            else
+            {
+                StringBuilder getParams = new StringBuilder();
+                foreach (KeyValuePair<string, string> kvp in param)
+                {
+                    if (kvp.Value != null)
+                    {
+                        getParams.Append("&").Append(kvp.Key).Append("=").Append(Uri.EscapeUriString(kvp.Value));
+                    }
+                }
+                return new DatasiftApiResponse(request(method, getParams.ToString()));
+            }
+        }
+
+        /// <summary>
+        /// Gets usage information and allowances
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public DatasiftApiResponse Usage(Dictionary<string, string> param)
+        {
+            if (param == null)
+            {
+                return new DatasiftApiResponse(request("usage", ""));
+            }
+            else
+            {
+                StringBuilder strParams = new StringBuilder();
+                foreach (KeyValuePair<string, string> kvp in param)
+                {
+                    if (kvp.Value != null)
+                    {
+                        strParams.Append("&").Append(kvp.Key).Append("=").Append(Uri.EscapeUriString(kvp.Value));
+                    }
+                }
+                return new DatasiftApiResponse(request("usage", strParams.ToString()));
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Your usage info</returns>
+        public DatasiftApiResponse Usage()
+        {
+            return Usage(null);
         }
     }
 }
