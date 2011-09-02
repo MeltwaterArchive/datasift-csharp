@@ -13,16 +13,18 @@ namespace DataSiftDemo
     {
         private ApiDemo()
         {
-            //We first need to create a configuration object
+
+//Step 4a   We first need to create a configuration object
             Config config = new Config(Config.ConfigType.API, "zcourts", "0c0ea89ac6b914f852c7111c85f85d03");// "<USERNAME>", "<API_KEY>");
-            //create an API request object and pass the configuration object as a param
+
+//Step 4b   create an API request object and pass the configuration object as a param
             DatasiftApiRequest request = new DatasiftApiRequest(config);
-            //send a CSDL to be compiled and get the response
+//Step 4c   send a CSDL to be compiled and get the response
             DatasiftApiResponse response = request.Compile("interaction.content contains \"google\"");
             Console.WriteLine("Compiled and got hash :" + response.Hash);
 
-            //make a new request, getting some interactions for the csdl we just compiled
             string hash = response.Hash;
+//Step 4d   make a new request, getting some interactions for the csdl we just compiled
             //get a single interaction, using the third param to set the count
             response = request.Stream(hash, null, 1);
             //buffering usually starts on the first request so if we didn't get anything back wait and try again
@@ -41,7 +43,7 @@ namespace DataSiftDemo
             }
 
             Console.WriteLine("Stream response objects end\n\n");
-            //now see the costs for this stream
+//Step 4e   now see the costs for this stream
             response = request.Cost(hash);
             Console.WriteLine("\nCosts : " + response.StreamCosts + "\n");
         }
