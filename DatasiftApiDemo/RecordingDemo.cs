@@ -14,7 +14,7 @@ namespace DataSiftDemo
         private RecordingDemo()
         {
             //We first need to create a configuration object
-            Config config = new Config(Config.ConfigType.API, "zcourts", "0c0ea89ac6b914f852c7111c85f85d03");// "<USERNAME>", "<API_KEY>");
+            Config config = new Config(Config.ConfigType.API, "<USERNAME>", "<API_KEY>");
             //create an API request object and pass the configuration object as a param
             DatasiftApiRequest request = new DatasiftApiRequest(config);
             //send a CSDL to be compiled and get the response
