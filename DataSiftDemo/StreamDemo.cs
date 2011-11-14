@@ -12,7 +12,7 @@ namespace DataSiftDemo
         private StreamDemo()
         {
             //the configuration for this stream
-            Config config = new Config("zcourts", "04177f07a3fa418865f473d193064a0c", "a292ecc39a5a942a4f0df779ddf1e7b8");
+            Config config = new Config("<USERNAME>", "<API_KEY>", "a292ecc39a5a942a4f0df779ddf1e7b8");
             config.BufferSize = 32768;//32kb custom stream buffer size,smaller tends to be faster, tune to preference
             config.Timeout = 20000;//20 seconds time out, try not to set too low
             config.AutoReconnect = true;

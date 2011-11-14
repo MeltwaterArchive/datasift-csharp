@@ -15,7 +15,7 @@ namespace DataSiftDemo
         {
 
             //Step 4a   We first need to create a configuration object
-            Config config = new Config(Config.ConfigType.API, "zcourts", "04177f07a3fa418865f473d193064a0c");
+            Config config = new Config(Config.ConfigType.API, "<USERNAME>", "<API_KEY>");
 
             //Step 4b   create an API request object and pass the configuration object as a param
             DatasiftApiRequest request = new DatasiftApiRequest(config);
