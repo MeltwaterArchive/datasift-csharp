@@ -20,3 +20,13 @@ G:\MediaSift\C#\Datasift\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.xml
 G:\MediaSift\C#\Datasift\DataSiftDemo\obj\x86\Debug\ResolveAssemblyReference.cache
 G:\MediaSift\C#\Datasift\DataSiftDemo\obj\x86\Debug\DataSiftDemo.exe
 G:\MediaSift\C#\Datasift\DataSiftDemo\obj\x86\Debug\DataSiftDemo.pdb
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\DataSiftDemo.exe
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\DataSiftDemo.pdb
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\Datasift.dll
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.dll
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\Datasift.pdb
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.pdb
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.xml
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Debug\ResolveAssemblyReference.cache
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Debug\DataSiftDemo.exe
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Debug\DataSiftDemo.pdb

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Datasift.DatasiftStream;
 //Datasift namespace has all the interfaces,exceptions and abstract classes
 namespace Datasift.Interfaces
@@ -9,7 +9,7 @@ namespace Datasift.Interfaces
     public interface DatasiftStreamClient
     {
         /// <summary>
-        /// This is called for each interaction recieved from the DatasiftStream 
+        /// This is called for each interaction recieved from the DatasiftStream
         /// </summary>
         /// <param name="data"> The</param>
         void onInteraction(Interaction interaction);
