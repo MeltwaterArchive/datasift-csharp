@@ -1,26 +1,23 @@
 DataSift API
 ============
 
-This is the official C# library for accessing DataSift. See the example
-projects for some simple example usage. 
-
-The unit test project (or any of the demos) should run by setting it as the start up project for the solution.
-
+This is the official C# library for accessing the DataSift API. 
+See the example projects for some simple example usage. 
 
 Requirements
 ------------
 * Microsoft .NET 3.5
-* Note that you need a compiler capable of compiling .NET 3.5 code
-* (Possibly) An IDE such as visual studio...the express version is free and should do fine. (Note that you cannot* debug unit test with the express version)
+* A compiler capable of compiling .NET 3.5 code
+* (Optional) An IDE such as Visual Studio. (Note: you cannot debug unit tests with the free VS Express version)
 
-The following libraries are included in the lib folder.
+The following libraries are included in the lib folder:
 
 * JSON.NET from http://json.codeplex.com/ (Included)
 
 Get going
 ---------
-The entire repository is on Visual studio solution.
-There are 4 projects in the solution
+The entire repository is on Visual Studio solution.
+There are 4 projects in the solution:
 
 * DataSift - This is the Datasift library. You can get the files in the bin/[debug|release] folder and add a reference in your project to get started or get the source and compile
 
