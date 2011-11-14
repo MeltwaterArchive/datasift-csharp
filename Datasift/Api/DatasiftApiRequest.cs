@@ -94,10 +94,10 @@ namespace Datasift.Api
         /// </summary>
         /// <param name="hash">The hash for the stream you want the costs for</param>
         /// <returns>An ApiResponse object which has its Costs and and Total properties populated</returns>
-        public DatasiftApiResponse Cost(string hash)
+        public DatasiftApiResponse Dpu(string hash)
         {
             // have a response object constructed and returned
-            return new DatasiftApiResponse(request("cost", "&hash=" + hash));
+            return new DatasiftApiResponse(request("dpu", "&hash=" + hash));
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Datasift.Api
         {
             try
             {
-                Console.WriteLine(config.getApiUrl(method) + param);
+                //Console.WriteLine(config.getApiUrl(method) + param);
                 //create our request
                 WebRequest req = WebRequest.Create(config.getApiUrl(method) + param);
                 //get response stream

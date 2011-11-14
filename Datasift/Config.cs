@@ -30,7 +30,7 @@ namespace Datasift
             }
             if (host == null)
             {
-                this.host = "http://stream.datasift.com";
+                this.host = "http://stream.datasift.com/";
             }
             else
             {
