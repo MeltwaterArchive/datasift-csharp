@@ -14,3 +14,11 @@ G:\MediaSift\C#\Datasift\Datasift\bin\Debug\Newtonsoft.Json.Net35.xml
 G:\MediaSift\C#\Datasift\Datasift\obj\Debug\ResolveAssemblyReference.cache
 G:\MediaSift\C#\Datasift\Datasift\obj\Debug\Datasift.dll
 G:\MediaSift\C#\Datasift\Datasift\obj\Debug\Datasift.pdb
+B:\mediasift\C#\datasift-csharp\Datasift\bin\Debug\Datasift.dll
+B:\mediasift\C#\datasift-csharp\Datasift\bin\Debug\Datasift.pdb
+B:\mediasift\C#\datasift-csharp\Datasift\bin\Debug\Newtonsoft.Json.Net35.dll
+B:\mediasift\C#\datasift-csharp\Datasift\bin\Debug\Newtonsoft.Json.Net35.pdb
+B:\mediasift\C#\datasift-csharp\Datasift\bin\Debug\Newtonsoft.Json.Net35.xml
+B:\mediasift\C#\datasift-csharp\Datasift\obj\Debug\ResolveAssemblyReference.cache
+B:\mediasift\C#\datasift-csharp\Datasift\obj\Debug\Datasift.dll
+B:\mediasift\C#\datasift-csharp\Datasift\obj\Debug\Datasift.pdb

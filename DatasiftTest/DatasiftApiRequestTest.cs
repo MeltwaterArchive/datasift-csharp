@@ -39,7 +39,7 @@ namespace DatasiftTest
             //while no requests are sent to the server the response object should have its hash populated with the string "hashcode"
             Assert.AreEqual("hashcode", res.Hash);
             Assert.AreEqual("now", res.CreatedAt);
-            Assert.AreEqual("1", res.RequestCost);
+            Assert.AreEqual("1", res.DPU);
         }
 
         [TestMethod()]

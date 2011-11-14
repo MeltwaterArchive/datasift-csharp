@@ -30,7 +30,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,6 +62,13 @@
   <ItemGroup>
     <Compile Include="Api\DatasiftApiResponse.cs" />
     <Compile Include="Api\DatasiftApiRequest.cs" />
+    <Compile Include="Api\DatasiftUsage.cs" />
+    <Compile Include="Api\DPU.cs" />
+    <Compile Include="Api\DPUItem.cs" />
+    <Compile Include="Api\Export.cs" />
+    <Compile Include="Api\Recording.cs" />
+    <Compile Include="Api\RecordingOperation.cs" />
+    <Compile Include="DatasiftStream\DataSiftMultiStream.cs" />
     <Compile Include="Exceptions\InvalidStreamHashException.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Exceptions\AuthorizationException.cs" />
@@ -72,6 +80,7 @@
     <Compile Include="DatasiftStream\DatasiftStream.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Interfaces\DatasiftStreamClient.cs" />
+    <Compile Include="Interfaces\MultiStreamPublisher.cs" />
     <Compile Include="Interfaces\Publisher.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +100,8 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
