@@ -53,71 +53,13 @@ namespace Datasift.Api
         /// </summary>
         public List<Interaction> Stream { get { return ApiResponseStream(); } set { } }
         /// <summary>
-        /// Used for 
-        /// /recording
-        /// /recording/schedule
-        /// /recording/update
-        /// and any recording operation which returns a single recording object
-        /// If you made a request to the API and provided a recording ID then this method returns a single recording object for the
-        /// id you specified which then contains data about the recording.
-        /// </summary>
-        public Recording Recording { get { return json["start_time"] == null ? null : new Recording(json.ToString()); } set { } }
-        /// <summary>
-        /// If no recording ID is given then the API returns a list of all your recordings.
-        /// This method returns all the available recordings that are returned
-        /// </summary>
-        public List<Recording> AllRecordings { get { return getAllRecordings(); } set { } }
-        /// <summary>
         /// Return how many recordings you have or -1 if either none exists or the API request you made does not provide a count
         /// </summary>
         public int ExportCount { get { return json["count"] == null ? -1 : Convert.ToInt32(json["count"].ToString()); } set { } }
         /// <summary>
-        /// Returns a single export object. Only if you made a request and provided an ID
-        /// </summary>
-        public Export Export { get { return json["recording_id"] == null ? null : new Export(json.ToString()); } set { } }
-        /// <summary>
-        /// Return a list of all available exports or a set up to the limit specified in the request which generated this response
-        /// </summary>
-        public List<Export> AllExports { get { return getAllExports(); } set { } }
-        /// <summary>
         /// Returns a datasift usage object or null if not available
         /// </summary>
         public DatasiftUsage Usage { get { return json["processed"] == null ? null : new DatasiftUsage(json.ToString()); } set { } }
-        private List<Export> getAllExports()
-        {
-            List<Export> rec = new List<Export>();
-            JToken recordings = json["exports"];
-            if (recordings == null)
-            {
-                return null;
-            }
-            else
-            {
-                foreach (JToken item in recordings)
-                {
-                    rec.Add(new Export(item.ToString()));
-                }
-                return rec;
-            }
-        }
-
-        private List<Recording> getAllRecordings()
-        {
-            List<Recording> rec = new List<Recording>();
-            JToken recordings = json["recordings"];
-            if (recordings == null)
-            {
-                return null;
-            }
-            else
-            {
-                foreach (JToken item in recordings)
-                {
-                    rec.Add(new Recording(item.ToString()));
-                }
-                return rec;
-            }
-        }
         /// <summary>
         /// Gets the set of interaction objects returned in this stream
         /// </summary>

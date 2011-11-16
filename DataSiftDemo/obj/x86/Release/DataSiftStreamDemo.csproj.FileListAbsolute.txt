@@ -7,3 +7,12 @@ G:\MediaSift\C#\Datasift\DataSiftDemo\bin\Release\Newtonsoft.Json.Net35.dll
 G:\MediaSift\C#\Datasift\DataSiftDemo\bin\Release\Newtonsoft.Json.Net35.pdb
 G:\MediaSift\C#\Datasift\DataSiftDemo\bin\Release\Newtonsoft.Json.Net35.xml
 G:\MediaSift\C#\Datasift\DataSiftDemo\obj\x86\Release\ResolveAssemblyReference.cache
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Release\DataSiftDemo.exe
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Release\DataSiftDemo.pdb
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Release\Datasift.dll
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Release\Newtonsoft.Json.Net35.dll
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Release\Newtonsoft.Json.Net35.pdb
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Release\Newtonsoft.Json.Net35.xml
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Release\ResolveAssemblyReference.cache
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Release\DataSiftDemo.exe
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Release\DataSiftDemo.pdb

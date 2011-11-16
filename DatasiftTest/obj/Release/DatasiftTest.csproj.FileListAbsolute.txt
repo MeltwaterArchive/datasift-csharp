@@ -9,3 +9,11 @@ G:\MediaSift\C#\Datasift\DatasiftTest\bin\Release\Datasift_Accessor.pdb
 G:\MediaSift\C#\Datasift\DatasiftTest\obj\Release\ResolveAssemblyReference.cache
 G:\MediaSift\C#\Datasift\DatasiftTest\obj\Release\DatasiftTest.dll
 G:\MediaSift\C#\Datasift\DatasiftTest\obj\Release\DatasiftTest.pdb
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Release\DatasiftTest.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Release\DatasiftTest.pdb
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Release\Datasift.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Release\Datasift_Accessor.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Release\Datasift_Accessor.pdb
+B:\mediasift\C#\datasift-csharp\DatasiftTest\obj\Release\ResolveAssemblyReference.cache
+B:\mediasift\C#\datasift-csharp\DatasiftTest\obj\Release\DatasiftTest.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\obj\Release\DatasiftTest.pdb

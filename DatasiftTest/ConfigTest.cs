@@ -21,11 +21,11 @@ namespace DatasiftTest
         public void TestConstructor2() {
             Config c = new Config(Config.ConfigType.API, "username", "apikey");
             string url=c.getApiUrl("test");
-            Assert.AreEqual("http://api.datasift.net/",url.Substring(0,24));
+            Assert.AreEqual("http://api.datasift.com/",url.Substring(0,24));
 
             c = new Config(Config.ConfigType.STREAM, "username", "apikey");
              url=c.getStreamUrl();
-            Assert.AreEqual("http://stream.datasift.net/",url.Substring(0,27));
+            Assert.AreEqual("http://stream.datasift.com/",url.Substring(0,27));
         }
 
         [TestMethod]

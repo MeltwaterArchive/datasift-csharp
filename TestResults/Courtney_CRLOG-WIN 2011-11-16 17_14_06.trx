@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b2e94655-d3b0-46d2-b76c-f3d372f455f5" name="Courtney@CRLOG-WIN 2011-11-16 17:14:06" runUser="crlog-win\Courtney" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="19273b8b-c785-45c3-b9c2-4b127a750843">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Courtney_CRLOG-WIN 2011-11-16 17_14_06">
+      <DeploymentItem filename="B:\mediasift\C#\datasift-csharp\Datasift\bin\Release\Datasift.dll" />
+      <DeploymentItem filename="B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Release\Newtonsoft.Json.Net35.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-16T17:14:06.6456031+00:00" queuing="2011-11-16T17:14:09.8877885+00:00" start="2011-11-16T17:14:10.3938174+00:00" finish="2011-11-16T17:14:15.0270824+00:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="7" executed="7" passed="5" error="0" failed="2" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CompileTest" storage="b:\mediasift\c#\datasift-csharp\datasifttest\bin\release\datasifttest.dll" id="fb26fd32-a664-caa1-9cbe-a062ac354094">
+      <Execution id="ee001a89-8b44-465f-9fe9-5383022602f6" />
+      <TestMethod codeBase="B:/mediasift/C#/datasift-csharp/DatasiftTest/bin/Release/DatasiftTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DatasiftTest.DatasiftApiRequestTest, DatasiftTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CompileTest" />
+    </UnitTest>
+    <UnitTest name="StreamTest" storage="b:\mediasift\c#\datasift-csharp\datasifttest\bin\release\datasifttest.dll" id="39be2b5f-d5c8-714c-e812-bff6958f1fa9">
+      <Execution id="3146a039-d342-4989-a7a3-96dfbf2bd07e" />
+      <TestMethod codeBase="B:/mediasift/C#/datasift-csharp/DatasiftTest/bin/Release/DatasiftTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DatasiftTest.DatasiftApiRequestTest, DatasiftTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="StreamTest" />
+    </UnitTest>
+    <UnitTest name="DatasiftApiRequestConstructorTest" storage="b:\mediasift\c#\datasift-csharp\datasifttest\bin\release\datasifttest.dll" id="8b9079c1-1731-7480-52bb-5816a2e906b0">
+      <Execution id="bce7d5bb-e7ca-47bc-bf7a-725834e60690" />
+      <TestMethod codeBase="B:/mediasift/C#/datasift-csharp/DatasiftTest/bin/Release/DatasiftTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DatasiftTest.DatasiftApiRequestTest, DatasiftTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DatasiftApiRequestConstructorTest" />
+    </UnitTest>
+    <UnitTest name="TestBufferSize" storage="b:\mediasift\c#\datasift-csharp\datasifttest\bin\release\datasifttest.dll" id="14c327ad-f99d-40fd-2226-fd6de1b1eff7">
+      <Execution id="280876d2-4dc7-47b2-bf64-5ee0f47176f1" />
+      <TestMethod codeBase="B:/mediasift/C#/datasift-csharp/DatasiftTest/bin/Release/DatasiftTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DatasiftTest.ConfigTest, DatasiftTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestBufferSize" />
+    </UnitTest>
+    <UnitTest name="TestConstructor2" storage="b:\mediasift\c#\datasift-csharp\datasifttest\bin\release\datasifttest.dll" id="871baba8-b6dd-c2ad-3a26-1b58babba025">
+      <Execution id="f0c0b62c-3308-4771-a7f3-ce6f2b64e194" />
+      <TestMethod codeBase="B:/mediasift/C#/datasift-csharp/DatasiftTest/bin/Release/DatasiftTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DatasiftTest.ConfigTest, DatasiftTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestConstructor2" />
+    </UnitTest>
+    <UnitTest name="StreamTest1" storage="b:\mediasift\c#\datasift-csharp\datasifttest\bin\release\datasifttest.dll" id="802dcbad-0cd6-6f66-c6a7-a5cf7a975eb0">
+      <Execution id="a1fb0912-c5d1-42c0-af06-0b4aa6ed8a5b" />
+      <TestMethod codeBase="B:/mediasift/C#/datasift-csharp/DatasiftTest/bin/Release/DatasiftTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DatasiftTest.DatasiftApiRequestTest, DatasiftTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="StreamTest1" />
+    </UnitTest>
+    <UnitTest name="TestConstructor1" storage="b:\mediasift\c#\datasift-csharp\datasifttest\bin\release\datasifttest.dll" id="cade8d3e-384d-c6bc-61b8-4fe4aa6111d9">
+      <Execution id="d8e86c60-523c-4c91-baff-2cc404373f52" />
+      <TestMethod codeBase="B:/mediasift/C#/datasift-csharp/DatasiftTest/bin/Release/DatasiftTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DatasiftTest.ConfigTest, DatasiftTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestConstructor1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="cade8d3e-384d-c6bc-61b8-4fe4aa6111d9" executionId="d8e86c60-523c-4c91-baff-2cc404373f52" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="871baba8-b6dd-c2ad-3a26-1b58babba025" executionId="f0c0b62c-3308-4771-a7f3-ce6f2b64e194" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="14c327ad-f99d-40fd-2226-fd6de1b1eff7" executionId="280876d2-4dc7-47b2-bf64-5ee0f47176f1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b9079c1-1731-7480-52bb-5816a2e906b0" executionId="bce7d5bb-e7ca-47bc-bf7a-725834e60690" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb26fd32-a664-caa1-9cbe-a062ac354094" executionId="ee001a89-8b44-465f-9fe9-5383022602f6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="802dcbad-0cd6-6f66-c6a7-a5cf7a975eb0" executionId="a1fb0912-c5d1-42c0-af06-0b4aa6ed8a5b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="39be2b5f-d5c8-714c-e812-bff6958f1fa9" executionId="3146a039-d342-4989-a7a3-96dfbf2bd07e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d8e86c60-523c-4c91-baff-2cc404373f52" testId="cade8d3e-384d-c6bc-61b8-4fe4aa6111d9" testName="TestConstructor1" computerName="CRLOG-WIN" duration="00:00:00.1398556" startTime="2011-11-16T17:14:10.8978463+00:00" endTime="2011-11-16T17:14:14.0380259+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d8e86c60-523c-4c91-baff-2cc404373f52">
+    </UnitTestResult>
+    <UnitTestResult executionId="f0c0b62c-3308-4771-a7f3-ce6f2b64e194" testId="871baba8-b6dd-c2ad-3a26-1b58babba025" testName="TestConstructor2" computerName="CRLOG-WIN" duration="00:00:00.1409081" startTime="2011-11-16T17:14:14.0580270+00:00" endTime="2011-11-16T17:14:14.2250366+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f0c0b62c-3308-4771-a7f3-ce6f2b64e194">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;http://api.datasift.net/&gt;. Actual:&lt;http://api.datasift.com/&gt;. </Message>
+          <StackTrace>   at DatasiftTest.ConfigTest.TestConstructor2() in B:\mediasift\C#\datasift-csharp\DatasiftTest\ConfigTest.cs:line 24
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="280876d2-4dc7-47b2-bf64-5ee0f47176f1" testId="14c327ad-f99d-40fd-2226-fd6de1b1eff7" testName="TestBufferSize" computerName="CRLOG-WIN" duration="00:00:00.0033739" startTime="2011-11-16T17:14:14.2470378+00:00" endTime="2011-11-16T17:14:14.2750394+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="280876d2-4dc7-47b2-bf64-5ee0f47176f1">
+    </UnitTestResult>
+    <UnitTestResult executionId="bce7d5bb-e7ca-47bc-bf7a-725834e60690" testId="8b9079c1-1731-7480-52bb-5816a2e906b0" testName="DatasiftApiRequestConstructorTest" computerName="CRLOG-WIN" duration="00:00:00.0646098" startTime="2011-11-16T17:14:14.2920404+00:00" endTime="2011-11-16T17:14:14.3810455+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bce7d5bb-e7ca-47bc-bf7a-725834e60690">
+    </UnitTestResult>
+    <UnitTestResult executionId="ee001a89-8b44-465f-9fe9-5383022602f6" testId="fb26fd32-a664-caa1-9cbe-a062ac354094" testName="CompileTest" computerName="CRLOG-WIN" duration="00:00:00.1885240" startTime="2011-11-16T17:14:14.3970464+00:00" endTime="2011-11-16T17:14:14.6090585+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee001a89-8b44-465f-9fe9-5383022602f6">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;1&gt;. Actual:&lt;(null)&gt;. </Message>
+          <StackTrace>   at DatasiftTest.DatasiftApiRequestTest.CompileTest() in B:\mediasift\C#\datasift-csharp\DatasiftTest\DatasiftApiRequestTest.cs:line 42
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a1fb0912-c5d1-42c0-af06-0b4aa6ed8a5b" testId="802dcbad-0cd6-6f66-c6a7-a5cf7a975eb0" testName="StreamTest1" computerName="CRLOG-WIN" duration="00:00:00.0695201" startTime="2011-11-16T17:14:14.6210592+00:00" endTime="2011-11-16T17:14:14.7150646+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1fb0912-c5d1-42c0-af06-0b4aa6ed8a5b">
+    </UnitTestResult>
+    <UnitTestResult executionId="3146a039-d342-4989-a7a3-96dfbf2bd07e" testId="39be2b5f-d5c8-714c-e812-bff6958f1fa9" testName="StreamTest" computerName="CRLOG-WIN" duration="00:00:00.0678616" startTime="2011-11-16T17:14:14.7330656+00:00" endTime="2011-11-16T17:14:14.8270710+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3146a039-d342-4989-a7a3-96dfbf2bd07e">
+    </UnitTestResult>
+  </Results>
+</TestRun>
