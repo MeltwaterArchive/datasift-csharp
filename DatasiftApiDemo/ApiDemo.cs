@@ -20,12 +20,13 @@ namespace DataSiftDemo
             //Step 4b   create an API request object and pass the configuration object as a param
             DatasiftApiRequest request = new DatasiftApiRequest(config);
             //Step 4c   send a CSDL to be compiled and get the response
-            DatasiftApiResponse response = request.Compile("tag \"positive\" { salience.content.sentiment >= 1 or salience.title.sentiment >= 1}tag \"negative\" { salience.content.sentiment <= -1 or salience.title.sentiment <= -1}return {salience.content.sentiment <= -1or salience.title.sentiment <= -1or salience.content.sentiment >= 1or salience.title.sentiment >= 1}");
-            Console.WriteLine("Compiled and got hash :" + response.Hash);
+            DatasiftApiResponse response = request.Compile("interaction.content contains_any \"music,entertainment,rnb,pop\"");
             if (response.IsError)
             {
                 Console.WriteLine(response.Error);
+                return;
             }
+            Console.WriteLine("Compiled and got hash :" + response.Hash);
             string hash = response.Hash;
             //Step 4d   make a new request, getting some interactions for the csdl we just compiled
             //get a single interaction, using the third param to set the count

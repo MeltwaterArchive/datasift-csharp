@@ -16,3 +16,12 @@ G:\MediaSift\C#\Datasift\DatasiftTest\bin\Debug\Datasift_Accessor.pdb
 G:\MediaSift\C#\Datasift\DatasiftTest\obj\Debug\ResolveAssemblyReference.cache
 G:\MediaSift\C#\Datasift\DatasiftTest\obj\Debug\DatasiftTest.dll
 G:\MediaSift\C#\Datasift\DatasiftTest\obj\Debug\DatasiftTest.pdb
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Debug\DatasiftTest.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Debug\DatasiftTest.pdb
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Debug\Datasift.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Debug\Datasift.pdb
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Debug\Datasift_Accessor.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\bin\Debug\Datasift_Accessor.pdb
+B:\mediasift\C#\datasift-csharp\DatasiftTest\obj\Debug\ResolveAssemblyReference.cache
+B:\mediasift\C#\datasift-csharp\DatasiftTest\obj\Debug\DatasiftTest.dll
+B:\mediasift\C#\datasift-csharp\DatasiftTest\obj\Debug\DatasiftTest.pdb

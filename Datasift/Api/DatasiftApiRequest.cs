@@ -7,6 +7,7 @@ using System.IO;
 using Datasift;
 using Datasift.Exceptions;
 using System.Web;
+using Newtonsoft.Json.Linq;
 
 namespace Datasift.Api
 {
@@ -17,6 +18,8 @@ namespace Datasift.Api
         /// The CSDL string to use;
         /// </summary>
         private string csdl;
+        private bool postRequest = false;
+        private Dictionary<string, string> postFields;
         /// <summary>
         /// A representation of a CSDL statement
         /// </summary>
@@ -29,6 +32,7 @@ namespace Datasift.Api
                 throw new InvalidStreamConfiguration();
             }
             this.config = config;
+            postFields = new Dictionary<string, string>();
         }
         /// <summary>
         /// Get or Set a CSDL string for this request
@@ -48,9 +52,12 @@ namespace Datasift.Api
             {
                 return null;
             }
+            IsPostRequest = true;
+            postFields.Add("csdl", csdl);
             // have a response object constructed and returned
-            return new DatasiftApiResponse(request("compile", "&csdl=" + csdl));
+            return new DatasiftApiResponse(request("compile", ""));
         }
+
         public DatasiftApiResponse Compile(string csdl)
         {
             this.csdl = csdl;
@@ -104,7 +111,7 @@ namespace Datasift.Api
         /// modifier protected only for the sake of overriding to test without nmock
         /// Makes an HTTP GET request
         /// </summary>
-        /// <param name="method">The API method to make the request to e.g. api.dataisft.net/compile</param>
+        /// <param name="postRequest">The API postRequest to make the request to e.g. api.dataisft.net/compile</param>
         /// <param name="param">A set of GET request parameters in the standard URL form, preceeded by an & e.g.
         /// &csdl=interaction.csdl "apple"
         /// </param>
@@ -113,51 +120,56 @@ namespace Datasift.Api
         {
             try
             {
-                //Console.WriteLine(config.getApiUrl(method) + param);
+                //Console.WriteLine(config.getApiUrl(postRequest) + param);
                 //create our request
                 WebRequest req = WebRequest.Create(config.getApiUrl(method) + param);
+                if (IsPostRequest)
+                {
+                    string postData = GetPostData();
+                    req.Method = "POST";
+                    byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+                    req.ContentType = "application/x-www-form-urlencoded";
+                    req.ContentLength = byteArray.Length;
+                    Stream dataStream = req.GetRequestStream();
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+                    dataStream.Close();
+                    //reset in case the object is re-used and the next request should be a GET
+                    IsPostRequest = false;
+                }
                 //get response stream
                 Stream stream = req.GetResponse().GetResponseStream();
                 StreamReader reader = new StreamReader(stream);
                 //read the entire stream
                 return reader.ReadToEnd();
             }
-            catch (Exception e) {
-                return "{error:\""+e.Message+"\"}";
+            catch (Exception ex)
+            {
+                return "{error:\"" + ex.Message + "\"}";
             }
+        }
+        /// <summary>
+        /// URL encode all the fields in postFields 
+        /// </summary>
+        /// <returns>The URL endoded version of postFields</returns>
+        private string GetPostData()
+        {
+            StringBuilder postString = new StringBuilder();
+            bool first = true;
+            foreach (KeyValuePair<string, string> field in postFields)
+            {
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    postString.Append("&");
+                }
+                postString.AppendFormat("{0}={1}", field.Key, HttpUtility.UrlEncode(field.Value));
+            }
+            return postString.ToString();
         }
 
-        /// <summary>
-        /// Gets usage information and allowances
-        /// </summary>
-        /// <param name="param"></param>
-        /// <returns></returns>
-        public DatasiftApiResponse Usage(Dictionary<string, string> param)
-        {
-            if (param == null)
-            {
-                return new DatasiftApiResponse(request("usage", ""));
-            }
-            else
-            {
-                StringBuilder strParams = new StringBuilder();
-                foreach (KeyValuePair<string, string> kvp in param)
-                {
-                    if (kvp.Value != null)
-                    {
-                        strParams.Append("&").Append(kvp.Key).Append("=").Append(Uri.EscapeUriString(kvp.Value));
-                    }
-                }
-                return new DatasiftApiResponse(request("usage", strParams.ToString()));
-            }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>Your usage info</returns>
-        public DatasiftApiResponse Usage()
-        {
-            return Usage(null);
-        }
+        public bool IsPostRequest { get { return postRequest; } set { postRequest = value; } }
     }
 }
