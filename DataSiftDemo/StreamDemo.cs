@@ -12,15 +12,19 @@ namespace DataSiftDemo
         private StreamDemo()
         {
             //the configuration for this stream
-            Config config = new Config("<USERNAME>", "<API_KEY>", "a292ecc39a5a942a4f0df779ddf1e7b8");
+            Config config = new Config("<USERNAME>", "<API_KEY>", "<STREAM_HASH>");
             config.BufferSize = 32768;//32kb custom stream buffer size,smaller tends to be faster, tune to preference
-            config.Timeout = 20000;//20 seconds time out, try not to set too low
+            //in general a lower timeout of say 20 seconds would be fine but for low volume streams a longer
+            //timeout may be best. long timeouts have no impact on when you receive data it just says,
+            //if I haven't received data after this much time then maybe something's gone wrong.
+            config.Timeout = 60000;//60 seconds time out, try not to set too low
             config.AutoReconnect = true;
             config.MaxRetries = 10;
             //create a stream
             DatasiftStream stream = new DatasiftStream(config, this);
             //start consuming
             stream.Consume();
+
         }
 
         static void Main(string[] args)

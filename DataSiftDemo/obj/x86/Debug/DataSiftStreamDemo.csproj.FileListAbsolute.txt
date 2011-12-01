@@ -30,3 +30,4 @@ B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\Newtonsoft.Json.Net35.xml
 B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Debug\ResolveAssemblyReference.cache
 B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Debug\DataSiftDemo.exe
 B:\mediasift\C#\datasift-csharp\DataSiftDemo\obj\x86\Debug\DataSiftDemo.pdb
+B:\mediasift\C#\datasift-csharp\DataSiftDemo\bin\Debug\DataSiftDemo.exe.config

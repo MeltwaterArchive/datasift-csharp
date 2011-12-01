@@ -75,7 +75,7 @@ namespace Datasift.Api
         {
             if (hash == null)
             {
-                throw new InvalidStreamHashException();
+                return new DatasiftApiResponse("{error:\"You must provide a Hash in order to make a request to the Stream API\"}");
             }
             StringBuilder query = new StringBuilder();
             query.Append("&hash=" + hash);
@@ -169,7 +169,9 @@ namespace Datasift.Api
             }
             return postString.ToString();
         }
-
+        /// <summary>
+        /// True if this request will be performed using HTTP POST
+        /// </summary>
         public bool IsPostRequest { get { return postRequest; } set { postRequest = value; } }
     }
 }

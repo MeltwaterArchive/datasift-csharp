@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Newtonsoft.Json;
 using Datasift.Interfaces;
-using Datasift.Exceptions;
 using Datasift;
 namespace Datasift.DatasiftStream
 {
@@ -115,21 +114,27 @@ namespace Datasift.DatasiftStream
                         case HttpStatusCode.OK: break;
 
                         case HttpStatusCode.Unauthorized:
-                            throw new DatasiftStreamException("Error 401 - Unauthorized. The credentials supplied were not valid.");
+                            this.reason = "Error 401 - Unauthorized. The credentials supplied were not valid.";
+                            PropagateStopped();
+                            return;
 
                         case HttpStatusCode.Forbidden:
-                            throw new DatasiftStreamException("Error 403 - Forbidden. Your account has been denied access due to a violation.");
+                            this.reason = "Error 403 - Forbidden. Your account has been denied access due to a violation.";
+                            PropagateStopped();
+                            return;
 
                         case HttpStatusCode.NotFound:
-                            throw new DatasiftStreamException("Error 404 - Not Found. The DatasiftStream you requested could not be found. Are you using  a valid hash?.");
+                            this.reason = "Error 404 - Not Found. The DatasiftStream you requested could not be found. Are you using  a valid hash?.";
+                            PropagateStopped();
+                            return;
 
                         case HttpStatusCode.ServiceUnavailable:
                             //this is the only documented none 200 status where the client should try to reconnect
                             if (config.AutoReconnect && connectCount <= config.MaxRetries)
                             {
                                 //we can reconnect increasing delay between each reconnect linearly (up to max configured retries, default=5)
-                                Thread.Sleep(exponentialConnectTimeoutLength*1000);
-                                exponentialConnectTimeoutLength *=2;//double wait time
+                                Thread.Sleep(exponentialConnectTimeoutLength * 1000);
+                                exponentialConnectTimeoutLength *= 2;//double wait time
                                 connectCount++;
                                 Consume();
                                 return;
@@ -138,20 +143,28 @@ namespace Datasift.DatasiftStream
                             {
                                 status = State.STOPPED;
                                 //if we end up here, we've run out of retries 
-                                throw new DatasiftStreamException("Error 503 - Service Unavailable. The node you were routed to is unavailable. Please try again");
+                                this.reason = "Error 503 - Service Unavailable. The node you were routed to is unavailable. Please try again";
+                                PropagateStopped();
+                                return;
                             }
-                            //if some unknown DatasiftStream response is detected then flag it!
+                        //if some unknown DatasiftStream response is detected then flag it!
                         default:
-                            throw new DatasiftUnknownResponseException(((HttpWebResponse)e.Response).StatusCode.ToString());
+                            this.reason = ((HttpWebResponse)e.Response).StatusCode.ToString();
+                            PropagateStopped();
+                            return;
                     }
                 }
                 if (e.Status.ToString() == "NameResolutionFailure")
                 {
                     //if connection is not available then propagate error back up for user to handle
-                    throw new DatasiftStreamException("Unable to resolve the Datasift domain name. A possible cause is the local connection to the internet \n" + e.Message);
+                    this.reason = "Unable to resolve the Datasift domain name. A possible cause is the local connection to the internet \n" + e.Message;
+                    PropagateStopped();
+                    return;
                 }
                 //if we get this far, possibly other local network issues - too many to handle and be more specific
-                throw new DatasiftStreamException("The connection to the DatasiftStream could not be established! \n" + e.Message);
+                this.reason = "The connection to the DatasiftStream could not be established! \n" + e.Message;
+                PropagateStopped();
+                return;
             }
             // get data from response DatasiftStream
             Stream resStream = response.GetResponseStream();
@@ -184,7 +197,7 @@ namespace Datasift.DatasiftStream
                         //slight bit of duplication from header status handling
                         if (config.AutoReconnect && connectCount <= config.MaxRetries)
                         {
-                           //we can reconnect increasing delay between each reconnect linearly (up to max configured retries, default=5)
+                            //we can reconnect increasing delay between each reconnect linearly (up to max configured retries, default=5)
                             Thread.Sleep(linearConnectTimeoutLength * 1000);
                             linearConnectTimeoutLength++;//increase time out should we end up here again
                             connectCount++;
@@ -195,11 +208,13 @@ namespace Datasift.DatasiftStream
                         {
                             status = State.STOPPED;
                             //if we end up here, we've run out of retries 
-                            throw new DatasiftStreamException("The connection to the DatasiftStream timed out \n" + ex.Message);
+                            this.reason = "The connection to the DatasiftStream timed out \n" + ex.Message;
+                            PropagateStopped();
                         }
                     }
                     //we shouldn't end up here if we simply timed out.
-                    throw new DatasiftStreamException("An unhandled exception was encountered while consuming the Datasift stream \n" + ex.Message);
+                    this.reason = "An unhandled exception was encountered while consuming the Datasift stream \n" + ex.Message;
+                    PropagateStopped();
                 }
                 // must have data in the buffer
                 if (count != 0)
@@ -308,7 +323,7 @@ namespace Datasift.DatasiftStream
                     c.onInteraction(interaction);
                 }
             }
-            catch (DataSiftIncompleteInteraction dii)
+            catch (Datasift.Exceptions.DataSiftIncompleteInteraction dii)
             {
 
             }
