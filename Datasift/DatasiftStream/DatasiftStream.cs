@@ -216,6 +216,11 @@ namespace Datasift.DatasiftStream
                     this.reason = "An unhandled exception was encountered while consuming the Datasift stream \n" + ex.Message;
                     PropagateStopped();
                 }
+                catch (Exception e)
+                {
+                    this.reason = "Unkown exception: \n" + e.Message;
+                    PropagateStopped();
+                }
                 // must have data in the buffer
                 if (count != 0)
                 {
