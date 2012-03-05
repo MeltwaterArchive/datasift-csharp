@@ -12,7 +12,7 @@ namespace DataSiftDemo
         private StreamDemo()
         {
             //the configuration for this stream
-            Config config = new Config("<USERNAME>", "<API_KEY>", "<STREAM_HASH>");
+            Config config = new Config("<USERNAME>", "<API_KEY>", "a5d049fec8e01fc7f047e0a173bcede8");
             config.BufferSize = 32768;//32kb custom stream buffer size,smaller tends to be faster, tune to preference
             //in general a lower timeout of say 20 seconds would be fine but for low volume streams a longer
             //timeout may be best. long timeouts have no impact on when you receive data it just says,

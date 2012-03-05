@@ -99,6 +99,7 @@ namespace Datasift.DatasiftStream
             {
                 // DatasiftStream url to make request
                 request = (HttpWebRequest)WebRequest.Create(config.getStreamUrl());
+                request.Headers["Authorization"] = config.Authorization;
                 // execute the request
                 response = (HttpWebResponse)request.GetResponse();
             }
@@ -224,8 +225,8 @@ namespace Datasift.DatasiftStream
                 // must have data in the buffer
                 if (count != 0)
                 {
-                    // tell all subscribers new data is available after translating from bytes to ASCII
-                    NotifyConsumers(Encoding.ASCII.GetString(buf, 0, count));
+                    // tell all subscribers new data is available after translating from bytes to UTF8
+                    NotifyConsumers(Encoding.UTF8.GetString(buf, 0, count));
                 }
             }
             //if we've stopped reading for some reason may need to do some checks
