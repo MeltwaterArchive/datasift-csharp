@@ -66,6 +66,7 @@
     <Compile Include="Api\DatasiftUsage.cs" />
     <Compile Include="Api\DPU.cs" />
     <Compile Include="Api\DPUItem.cs" />
+    <Compile Include="DatasiftStream\DatasiftMultiStream.cs" />
     <Compile Include="Exceptions\InvalidStreamHashException.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Exceptions\AuthorizationException.cs" />
