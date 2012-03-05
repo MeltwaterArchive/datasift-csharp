@@ -80,7 +80,7 @@ namespace Datasift
         /// </summary> 
         public string getStreamUrl()
         {
-            return host + hash + "?username=" + username + "&api_key=" + api_key;
+            return host + hash;
         }
         /// <summary>
         /// 
@@ -88,7 +88,7 @@ namespace Datasift
         /// <returns> Return the  URL to the datasift core API with only username and api key get params being set</returns>
         public string getApiUrl(string method)
         {
-            return host + method + "?username=" + username + "&api_key=" + api_key;
+            return host + method;
         }
 
         /// <summary>
@@ -134,6 +134,12 @@ namespace Datasift
         {
             get { return hash; }
             set { hash = value; }
+        }
+
+        public string Authorization
+        {
+            get { return username + ":" + api_key; }
+            set { }
         }
     }
 

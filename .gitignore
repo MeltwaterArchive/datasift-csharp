@@ -1,6 +1,13 @@
-
 Datasift C# client - Getting started.docx
 Datasift C# client - Getting started.pdf
 Datasift/UML/
 Datasift/vpproject/Datasift.vpppath
 Datasift/Brandy
+DataSiftDemo/bin/*
+DataSift/bin/*
+DataSiftTest/bin/*
+DataSiftDemo/obj/*
+DataSift/obj/*
+DataSiftTest/obj/*
+DataSiftApiDemo/bin/*
+DataSiftApiDemo/obj/*
