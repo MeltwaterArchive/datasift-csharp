@@ -17,7 +17,7 @@ namespace Datasift
         private bool autoReconnect = false;
         private int maxRetries = 5;
         private ConfigType configType = ConfigType.STREAM;
-
+        
         /// <summary>
         /// <see cref="Config(string username, string api_key, string hash)"/>
         /// This assumes a config configType of STREAM
@@ -139,6 +139,16 @@ namespace Datasift
         public string Authorization
         {
             get { return username + ":" + api_key; }
+            set { }
+        }
+        public string Version
+        {
+            get { return "1.0.1"; }
+            set { }
+        }
+        public string UserAgent
+        {
+            get { return "DataSiftCSharp/"+Version; }
             set { }
         }
     }

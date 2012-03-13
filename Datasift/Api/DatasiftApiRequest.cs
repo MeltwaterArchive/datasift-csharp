@@ -124,6 +124,7 @@ namespace Datasift.Api
                 //create our request
                 WebRequest req = WebRequest.Create(config.getApiUrl(method) + param);
                 req.Headers["Authorization"] = config.Authorization;
+                req.Headers["User-Agent"] = config.UserAgent;
                 if (IsPostRequest)
                 {
                     string postData = GetPostData();
