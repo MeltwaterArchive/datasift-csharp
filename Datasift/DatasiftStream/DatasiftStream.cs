@@ -100,7 +100,7 @@ namespace Datasift.DatasiftStream
                 // DatasiftStream url to make request
                 request = (HttpWebRequest)WebRequest.Create(config.getStreamUrl());
                 request.Headers["Authorization"] = config.Authorization;
-                request.Headers["User-Agent"] = config.UserAgent;
+                request.UserAgent = config.UserAgent;
                 // execute the request
                 response = (HttpWebResponse)request.GetResponse();
             }
