@@ -143,7 +143,7 @@ namespace Datasift
         }
         public string Version
         {
-            get { return "1.0.1"; }
+            get { return "1.0.2"; }
             set { }
         }
         public string UserAgent
