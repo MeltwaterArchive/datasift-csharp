@@ -189,7 +189,6 @@ namespace Datasift.DatasiftStream
 
         private void Retry(string msg)
         {
-            Console.WriteLine("\n\n\n\n\n\n\n\n\nRetrying... " + connectCount + " " + msg + "\n\n\n\n\n\n\n\n\n");
             //this is the only documented none 200 status where the client should try to reconnect
             if (config.AutoReconnect && connectCount <= config.MaxRetries)
             {
