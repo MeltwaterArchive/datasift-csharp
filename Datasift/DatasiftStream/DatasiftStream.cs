@@ -139,13 +139,15 @@ namespace Datasift.DatasiftStream
                 if (e.Status.ToString() == "NameResolutionFailure")
                 {
                     //if connection is not available then propagate error back up for user to handle
-                    PropagateStopped("Unable to resolve the Datasift domain name. A possible cause is the local connection to the internet \n" + e.Message);
+                    Retry("Unable to resolve the Datasift domain name. A possible cause is the local connection to the internet \n" + e.Message);
                     return;
                 }
                 //if we get this far, possibly other local network issues - too many to handle and be more specific
-                PropagateStopped("The connection to the DatasiftStream could not be established! \n" + e.Message);
+                Retry("The connection to the DatasiftStream could not be established! \n" + e.Message);
                 return;
             }
+            //made a successful connection, reset retry count
+            connectCount = 0;
             // get data from response DatasiftStream
             Stream resStream = response.GetResponseStream();
             //sets the read timeout
