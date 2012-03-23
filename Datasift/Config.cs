@@ -14,10 +14,12 @@ namespace Datasift
         private string hash;
         private int streamBufferSize = 32768;//32KB default buffer size
         private int streamTimeout = 10000;
+        private int sretryTimeout = 30000;
         private bool autoReconnect = false;
+        private bool giveup = false;
         private int maxRetries = 5;
         private ConfigType configType = ConfigType.STREAM;
-        
+
         /// <summary>
         /// <see cref="Config(string username, string api_key, string hash)"/>
         /// This assumes a config configType of STREAM
@@ -126,6 +128,25 @@ namespace Datasift
             set { this.maxRetries = value; }
         }
         /// <summary>
+        /// If true then attempts to retry streaming are stopped after
+        /// MaxRetries has been exceeded. Otherwise a retry attempt is made
+        /// every StaticRetryTimeout
+        /// </summary>
+        public bool GiveupAfterMaxRetries
+        {
+            get { return giveup; }
+            set { giveup = value; }
+        }
+        /// <summary>
+        /// time to wait between retries after exceeding Max retries
+        /// A minimum of 30 seconds is enforced.
+        /// </summary>
+        public int StaticRetryTimeout
+        {
+            get { return sretryTimeout; }
+            set { sretryTimeout = value; }
+        }
+        /// <summary>
         /// Get or set the has value for this config.
         /// Changing the hash of a config instance after it is passed to a stream does not affect/change the stream
         /// unless the stream is stopped and restarted with the same config.
@@ -143,15 +164,14 @@ namespace Datasift
         }
         public string Version
         {
-            get { return "1.0.2"; }
+            get { return "1.0.3"; }
             set { }
         }
         public string UserAgent
         {
-            get { return "DataSiftCSharp/"+Version; }
+            get { return "DataSiftCSharp/" + Version; }
             set { }
         }
     }
 
 }
-

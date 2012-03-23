@@ -31,7 +31,7 @@ namespace Datasift.DatasiftStream
         /// <summary>
         /// For none 200 statuses we can reconnect (if configured to) doubling the timeout each time and starting from 10
         /// </summary>
-        private int exponentialConnectTimeoutLength = 10;
+        private int exponentialConnectTimeoutLength = 1;
         /// <summary>
         /// Consumes the Datasift http DatasiftStream and notifies all subscribers on each interaction.
         /// </summary>
@@ -132,22 +132,24 @@ namespace Datasift.DatasiftStream
                             return;
                         //if some unknown DatasiftStream response is detected then flag it!
                         default:
-                            PropagateStopped(((HttpWebResponse)e.Response).StatusCode.ToString());
+                            Retry(((HttpWebResponse)e.Response).StatusCode.ToString());
                             return;
                     }
                 }
                 if (e.Status.ToString() == "NameResolutionFailure")
                 {
                     //if connection is not available then propagate error back up for user to handle
-                    Retry("Unable to resolve the Datasift domain name. A possible cause is the local connection to the internet \n" + e.Message);
+                    ImediateRetry("Unable to resolve the Datasift domain name. A possible cause is the local connection to the internet \n" + e.Message);
                     return;
                 }
                 //if we get this far, possibly other local network issues - too many to handle and be more specific
-                Retry("The connection to the DatasiftStream could not be established! \n" + e.Message);
+                ImediateRetry("The connection to the DatasiftStream could not be established! \n" + e.Message);
                 return;
             }
             //made a successful connection, reset retry count
             connectCount = 0;
+            linearConnectTimeoutLength = 1;
+            exponentialConnectTimeoutLength = 1;
             // get data from response DatasiftStream
             Stream resStream = response.GetResponseStream();
             //sets the read timeout
@@ -168,8 +170,8 @@ namespace Datasift.DatasiftStream
                 }
                 catch (Exception ex)
                 {
-                     //stop if we've run out of retries
-                     Retry(ex.Message);
+                    //stop if we've run out of retries
+                    Retry(ex.Message);
                 }
 
                 // must have data in the buffer
@@ -184,17 +186,32 @@ namespace Datasift.DatasiftStream
             //i.e if state hasn't been changed to stopped then DatasiftStream may have ended prematurely/unexpectedly
             if (this.status != State.STOPPED)
             {
-                Retry("DatasiftStream ended prematurely last read total =>"+count);
+                Retry("DatasiftStream ended prematurely last read total =>" + count);
             }
 
         }
 
-        private void Retry(string msg)
+        private void ImediateRetry(string msg)
         {
-            //this is the only documented none 200 status where the client should try to reconnect
-            if (config.AutoReconnect && connectCount <= config.MaxRetries)
+            if (config.AutoReconnect && connectCount < config.MaxRetries && linearConnectTimeoutLength <= 16)
             {
                 //we can reconnect increasing delay between each reconnect linearly (up to max configured retries, default=5)
+                Thread.Sleep(linearConnectTimeoutLength * 1000);
+                linearConnectTimeoutLength += 1;//+1 
+                connectCount++;
+                Consume();
+            }
+            else
+            {
+                StopOrRetry(msg);
+            }
+        }
+
+        private void Retry(string msg)
+        {
+            if (config.AutoReconnect && connectCount < config.MaxRetries && exponentialConnectTimeoutLength <= 320)
+            {
+                //we can reconnect increasing delay between each reconnect (up to max configured retries, default=5)
                 Thread.Sleep(exponentialConnectTimeoutLength * 1000);
                 exponentialConnectTimeoutLength *= 2;//double wait time
                 connectCount++;
@@ -202,10 +219,26 @@ namespace Datasift.DatasiftStream
             }
             else
             {
-                status = State.STOPPED;
-                //if we end up here, we've run out of retries 
+                StopOrRetry(msg);
+            }
+        }
+
+        private void StopOrRetry(string msg)
+        {
+            //run out of retry attempts, if configured to give up then stop (false by default)
+            //otherwise continue attempting to retry every N time period <= 30 seconds
+            if (config.GiveupAfterMaxRetries)
+            {
+                status = State.STOPPED; 
                 PropagateStopped(msg);
             }
+            else
+            {
+                //if we end up here, we've run out of retries, do retry after fixed time
+                int time = Math.Max(config.StaticRetryTimeout, 30000); //retry after min of 30 seconds
+                Thread.Sleep(time);
+                Consume();
+            } 
         }
         /// <summary>
         /// Let all subscribers know the DatasiftStream has stopped
