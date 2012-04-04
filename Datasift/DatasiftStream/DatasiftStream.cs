@@ -319,7 +319,6 @@ namespace Datasift.DatasiftStream
                 Interaction interaction = new Interaction(data);
                 if (interaction.IsError())
                 {
-                    Retry(interaction.StatusMessage());
                     return;
                 }
                 foreach (DatasiftStreamClient c in this.subcribers)
