@@ -199,7 +199,7 @@ namespace Datasift.DatasiftStream
                 Thread.Sleep(linearConnectTimeoutLength * 1000);
                 linearConnectTimeoutLength += 1;//+1 
                 connectCount++;
-                Consume();
+                StartStreaming();
             }
             else
             {
@@ -215,7 +215,7 @@ namespace Datasift.DatasiftStream
                 Thread.Sleep(exponentialConnectTimeoutLength * 1000);
                 exponentialConnectTimeoutLength *= 2;//double wait time
                 connectCount++;
-                Consume();
+                StartStreaming();
             }
             else
             {
@@ -237,7 +237,7 @@ namespace Datasift.DatasiftStream
                 //if we end up here, we've run out of retries, do retry after fixed time
                 int time = Math.Max(config.StaticRetryTimeout, 30000); //retry after min of 30 seconds
                 Thread.Sleep(time);
-                Consume();
+                StartStreaming();
             } 
         }
         /// <summary>
